@@ -9,11 +9,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("System.Net.IPNetwork")]
+[assembly: AssemblyTitle("IPNetwork3")]
 [assembly: AssemblyDescription("IPNetwork C# library take care of complex network, ip, ipv4, ipv6, netmask, cidr, subnet, subnetting, supernet and supernetting calculation for .Net developpers. It works with IPv4 and IPv6 as well. It is written in C# for .NetStandard and coreclr and has a light and clean API and is fully unit tested.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Luc Dvchosal")]
-[assembly: AssemblyProduct("System.Net.IPNetwork")]
+[assembly: AssemblyProduct("IPNetwork3")]
 [assembly: AssemblyCopyright("Copyright © Luc Dvchosal 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

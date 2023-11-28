@@ -1,4 +1,4 @@
-name: .NET
+name: .NET8 Build
 
 on:
   push:
@@ -12,20 +12,51 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Test the environment
+      run: |
+        ls
+        pwd
+    - uses: actions/checkout@v4
     - name: Setup .NET
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 8.0.x
     - name: Install dependencies
       run: dotnet tool install --global coveralls.net
     - name: Restore dependencies
       run: dotnet restore ./src --verbosity m
     - name: Restore nugets
       run: nuget restore ./src
-    - name: Pack
-      run: dotnet pack -c release ./src/System.Net.IPNetwork
     - name: Build
       run: dotnet build  --no-restore -c release ./src/ConsoleApplication --no-restore
     - name: Test
       run: dotnet test --verbosity normal ./src/ConsoleApplication/ConsoleApplication.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+    - name: Pack
+      run: dotnet pack -c release ./src/System.Net.IPNetwork
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: Nupkg
+        path: /home/runner/work/ipnetwork/ipnetwork/src/System.Net.IPNetwork/bin/release/IPNetwork3*.nupkg
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: "release-${{ github.run_id }}"
+        release_name: Release Test - ${{ github.run_id }}
+        body: |
+          See the commit please
+        draft: false
+        prerelease: true
+    - name: Upload Release Asset
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: /home/runner/work/ipnetwork/ipnetwork/src/System.Net.IPNetwork/bin/release/IPNetwork3.3.0.0.nupkg
+        asset_name: IPNetwork3.nupkg
+        asset_content_type: application/octet-stream

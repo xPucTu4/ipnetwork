@@ -15,11 +15,11 @@ namespace System.Net.TestSerialization.NetFramework
         [TestMethod]
         public void Test_Serialize_Xml()
         {
-            var ipnetwork = IPNetwork.Parse("10.0.0.1/8");
+            var ipnetwork = IPNetwork3.IPNetwork.Parse("10.0.0.1/8");
 
             var mem = new MemoryStream();
 
-            var serializer = new XmlSerializer(typeof(IPNetwork));
+            var serializer = new XmlSerializer(typeof(IPNetwork3.IPNetwork));
             serializer.Serialize(mem, ipnetwork);
 
             string result = Encoding.UTF8.GetString(mem.ToArray());
@@ -40,21 +40,21 @@ namespace System.Net.TestSerialization.NetFramework
             byte[] bytes = Encoding.UTF8.GetBytes(xml);
             var mem = new MemoryStream(bytes);
 
-            var serializer = new XmlSerializer(typeof(IPNetwork));
+            var serializer = new XmlSerializer(typeof(IPNetwork3.IPNetwork));
             object result = serializer.Deserialize(mem);
 
-            var expected = IPNetwork.Parse("10.0.0.1/8");
+            var expected = IPNetwork3.IPNetwork.Parse("10.0.0.1/8");
             Assert.AreEqual(expected, result);
         }
 
         [TestMethod]
         public void Test_Serialize_Deserialize_Xml()
         {
-            var ipnetwork = IPNetwork.Parse("10.0.0.1/8");
+            var ipnetwork = IPNetwork3.IPNetwork.Parse("10.0.0.1/8");
 
             var mem = new MemoryStream();
 
-            var serializer = new XmlSerializer(typeof(IPNetwork));
+            var serializer = new XmlSerializer(typeof(IPNetwork3.IPNetwork));
             serializer.Serialize(mem, ipnetwork);
 
             string result = Encoding.UTF8.GetString(mem.ToArray());
@@ -70,9 +70,9 @@ namespace System.Net.TestSerialization.NetFramework
         [TestCategory("LongRunning")]
         public void Test_1_000_000_Serialize_Xml()
         {
-            var ipnetwork = IPNetwork.Parse("10.0.0.1/8");
+            var ipnetwork = IPNetwork3.IPNetwork.Parse("10.0.0.1/8");
 
-            var serializer = new XmlSerializer(typeof(IPNetwork));
+            var serializer = new XmlSerializer(typeof(IPNetwork3.IPNetwork));
             var mem = new MemoryStream();
 
             for (int i = 0; i < 1000000; i++)
@@ -95,7 +95,7 @@ namespace System.Net.TestSerialization.NetFramework
             byte[] bytes = Encoding.UTF8.GetBytes(xml);
             var mem = new MemoryStream(bytes);
 
-            var serializer = new XmlSerializer(typeof(IPNetwork));
+            var serializer = new XmlSerializer(typeof(IPNetwork3.IPNetwork));
 
             for (int i = 0; i < 1000000; i++)
             {
@@ -110,9 +110,9 @@ namespace System.Net.TestSerialization.NetFramework
         [TestCategory("LongRunning")]
         public void Test_1_000_000_Serialize_Deserialize_Xml()
         {
-            var ipnetwork = IPNetwork.Parse("10.0.0.1/8");
+            var ipnetwork = IPNetwork3.IPNetwork.Parse("10.0.0.1/8");
 
-            var serializer = new XmlSerializer(typeof(IPNetwork));
+            var serializer = new XmlSerializer(typeof(IPNetwork3.IPNetwork));
             var mem = new MemoryStream();
 
             for (int i = 0; i < 1000000; i++)
