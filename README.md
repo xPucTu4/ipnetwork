@@ -1,27 +1,22 @@
-# IPNetwork 
+# IPNetwork3 Project
+This project is a fork of the original [IPNetwork2](https://github.com/lduchosal/ipnetwork/) specifically tailored for .NET 8 environments.
 
-[![Travis-CI Build Status](https://travis-ci.org/lduchosal/ipnetwork.svg?branch=master)](https://travis-ci.org/lduchosal/ipnetwork)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/lduchosal/ipnetwork?branch=master&svg=true)](https://ci.appveyor.com/project/lduchosal/ipnetwork/branch/master)
-[![Nuget](https://img.shields.io/badge/nuget-ipnetwork2-blue.svg)](https://www.nuget.org/packages/ipnetwork2)
-[![Nuget](https://img.shields.io/nuget/dt/IPNetwork2)](https://www.nuget.org/packages/ipnetwork2)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Flduchosal%2Fipnetwork.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Flduchosal%2Fipnetwork?ref=badge_shield)
-[![Coverage Status](https://coveralls.io/repos/github/lduchosal/ipnetwork/badge.svg?branch=master)](https://coveralls.io/github/lduchosal/ipnetwork?branch=master)
-![GitHub last commit](https://img.shields.io/github/last-commit/lduchosal/ipnetwork)
-[![CodeFactor](https://www.codefactor.io/repository/github/lduchosal/ipnetwork/badge)](https://www.codefactor.io/repository/github/lduchosal/ipnetwork)
-[![SonarCloud](https://github.com/lduchosal/ipnetwork/actions/workflows/build.yml/badge.svg)](https://github.com/lduchosal/ipnetwork/actions/workflows/build.yml)
-[![.NET](https://github.com/lduchosal/ipnetwork/actions/workflows/dotnet.yml/badge.svg)](https://github.com/lduchosal/ipnetwork/actions/workflows/dotnet.yml)
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=lduchosal_ipnetwork&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=lduchosal_ipnetwork)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=lduchosal_ipnetwork&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=lduchosal_ipnetwork)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=lduchosal_ipnetwork&metric=coverage)](https://sonarcloud.io/summary/new_code?id=lduchosal_ipnetwork)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=lduchosal_ipnetwork&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=lduchosal_ipnetwork)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=lduchosal_ipnetwork&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=lduchosal_ipnetwork)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=lduchosal_ipnetwork&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=lduchosal_ipnetwork)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=lduchosal_ipnetwork&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=lduchosal_ipnetwork)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=lduchosal_ipnetwork&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=lduchosal_ipnetwork)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=lduchosal_ipnetwork&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=lduchosal_ipnetwork)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=lduchosal_ipnetwork&metric=bugs)](https://sonarcloud.io/summary/new_code?id=lduchosal_ipnetwork)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=lduchosal_ipnetwork&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=lduchosal_ipnetwork)
-[![SecurityCodeScan](https://github.com/lduchosal/ipnetwork/actions/workflows/securitycodescan.yml/badge.svg)](https://github.com/lduchosal/ipnetwork/actions/workflows/securitycodescan.yml)
+## Key Changes
+
+- **.NET 8 Exclusive**: The project has been updated to target .NET 8 exclusively, moving away from previous versions like .NET 3.1, .NET Standard, and .NET 4.
+- **Namespace Update**: To resolve a namespace clash with `System.Net.IPNetwork` introduced in .NET 8, this project uses the namespace `IPNetwork3`.
+- **NuGet Availability**: As of now, this project will not be published to NuGet. Use the releases here.
+
+## Namespace Clash and Resolution
+The introduction of `System.Net.IPNetwork` in .NET 8 resulted in a naming conflict with the original IPNetwork2 package. To address this, IPNetwork3 modifies the namespace to avoid such clashes, ensuring smooth integration with .NET 8 applications.
+
+## Note
+This fork is an adaptation for specific use cases and might not cover all scenarios of the original IPNetwork2. Users should be aware of the potential incompatibilities with XML serialization and backward compatibility due to the namespace changes.
+
+
+# IPNetwork - The original README
+[IPNetwork2](https://github.com/lduchosal/ipnetwork/) - the original project.  
+
 
 IPNetwork command line and C# library take care of complex network, IP, IPv4, IPv6, netmask, CIDR, subnet, subnetting, supernet, and supernetting calculation for .NET developers. It works with IPv4 as well as IPv6, is written in C#, has a light and clean API, and is fully unit-tested.
 
